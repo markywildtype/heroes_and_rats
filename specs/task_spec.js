@@ -6,7 +6,7 @@ describe('Task', function(){
   let task1;
 
   beforeEach(function(){
-    task1 = new Task('Prove the existence of aliens', 10);
+    task1 = new Task('Prove the existence of aliens', 10, 2);
   });
 
   it('should have a description', function(){
@@ -17,6 +17,11 @@ describe('Task', function(){
   it('should have a difficulty level', function(){
     const actual = task1.difficulty;
     assert.strictEqual(actual, 10);
+  });
+
+  it('should have an urgency level', function(){
+    const actual = task1.urgency;
+    assert.strictEqual(actual, 2);
   })
 
 })
