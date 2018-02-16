@@ -6,7 +6,7 @@ describe('Hero', function(){
   let foxMulder;
 
   beforeEach(function(){
-    foxMulder = new Hero('Fox Mulder');
+    foxMulder = new Hero('Fox Mulder', 'Sunflower Seeds');
   });
 
   it('should have a name', function(){
@@ -19,6 +19,9 @@ describe('Hero', function(){
     assert.strictEqual(actual, 100);
   })
 
-
+  it('should have a favourite food', function(){
+    const actual = foxMulder.favouriteFood;
+    assert.strictEqual(actual, 'Sunflower Seeds');
+  })
 
 })
