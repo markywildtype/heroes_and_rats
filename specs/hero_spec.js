@@ -27,6 +27,11 @@ describe('Hero', function(){
   it('should be able to talk', function(){
     const actual = foxMulder.talk();
     assert.strictEqual(actual, "Hi, I'm Fox Mulder")
-  })
+  });
+
+  it('should have a list of tasks which starts empty', function(){
+    const actual = foxMulder.tasklist.length;
+    assert.strictEqual(actual, 0);
+  });
 
 })
