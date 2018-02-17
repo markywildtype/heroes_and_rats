@@ -34,5 +34,11 @@ describe('Task', function(){
     assert.strictEqual(actual, false);
   });
 
+  it('should be able to mark a task as completed', function(){
+    task1.markComplete();
+    const actual = task1.complete;
+    assert.strictEqual(actual, true);
+  })
+
 
 })
