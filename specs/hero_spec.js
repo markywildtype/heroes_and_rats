@@ -5,10 +5,12 @@ const Food = require('../food.js')
 describe('Hero', function(){
 
   let foxMulder;
+  let oreos;
   let sunflowerSeeds;
 
   beforeEach(function(){
-    foxMulder = new Hero("Fox Mulder", "Sunflower Seeds");
+    foxMulder = new Hero('Fox Mulder', 'Sunflower Seeds');
+    oreos = new Food('Oreos', 8);
     sunflowerSeeds = new Food('Sunflower Seeds', 12);
   });
 
@@ -38,9 +40,15 @@ describe('Hero', function(){
   });
 
   it('should be able to eat food to increase health value', function(){
+    foxMulder.eatFood(oreos);
+    const actual = foxMulder.health;
+    assert.strictEqual(actual, 108);
+  });
+
+  it('should increase health by 1.5x if eating favourite food', function(){
     foxMulder.eatFood(sunflowerSeeds);
     const actual = foxMulder.health;
-    assert.strictEqual(actual, 112);
+    assert.strictEqual(actual, 118);
   });
 
 })
