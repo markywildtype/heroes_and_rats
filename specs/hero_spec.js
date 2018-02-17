@@ -1,17 +1,24 @@
 const assert = require('assert');
 const Hero = require('../hero.js');
-const Food = require('../food.js')
+const Food = require('../food.js');
+const Task = require('../task.js');
 
 describe('Hero', function(){
 
   let foxMulder;
   let oreos;
   let sunflowerSeeds;
+  let task1;
+  let task2;
+  let task3;
 
   beforeEach(function(){
     foxMulder = new Hero('Fox Mulder', 'Sunflower Seeds');
     oreos = new Food('Oreos', 8);
     sunflowerSeeds = new Food('Sunflower Seeds', 12);
+    task1 = new Task('Prove the existence of aliens', 10, 2, 'I Want To Believe poster');
+    task2 = new Task('Get Skinner onside', 6, 6, 'Search Warrant');
+    task2 = new Task('Signal Deep Throat', 3, 9, 'New Information');
   });
 
   it('should have a name', function(){
@@ -37,6 +44,14 @@ describe('Hero', function(){
   it('should have a list of tasks which starts empty', function(){
     const actual = foxMulder.tasklist.length;
     assert.strictEqual(actual, 0);
+  });
+
+  it('should be able to add tasks to the task list', function(){
+    foxMulder.addTask(task1);
+    foxMulder.addTask(task2);
+    foxMulder.addTask(task3);
+    const actual = foxMulder.tasklist.length;
+    assert.strictEqual(actual, 3);
   });
 
   it('should be able to eat food to increase health value', function(){
