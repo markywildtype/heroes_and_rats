@@ -9,4 +9,8 @@ Hero.prototype.talk = function(){
   return `Hi, I'm ${this.name}`;
 }
 
+Hero.prototype.eatFood = function(food){
+  this.health += food.replenishmentValue;
+}
+
 module.exports = Hero;

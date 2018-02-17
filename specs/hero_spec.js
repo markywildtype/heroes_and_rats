@@ -1,12 +1,15 @@
 const assert = require('assert');
 const Hero = require('../hero.js');
+const Food = require('../food.js')
 
 describe('Hero', function(){
 
   let foxMulder;
+  let sunflowerSeeds;
 
   beforeEach(function(){
     foxMulder = new Hero("Fox Mulder", "Sunflower Seeds");
+    sunflowerSeeds = new Food('Sunflower Seeds', 12);
   });
 
   it('should have a name', function(){
@@ -32,6 +35,12 @@ describe('Hero', function(){
   it('should have a list of tasks which starts empty', function(){
     const actual = foxMulder.tasklist.length;
     assert.strictEqual(actual, 0);
+  });
+
+  it('should be able to eat food to increase health value', function(){
+    foxMulder.eatFood(sunflowerSeeds);
+    const actual = foxMulder.health;
+    assert.strictEqual(actual, 112);
   });
 
 })
