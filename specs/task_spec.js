@@ -29,7 +29,10 @@ describe('Task', function(){
     assert.strictEqual(actual, 'I Want To Believe poster');
   });
 
-
+  it('should have a completion status, which starts at false', function(){
+    const actual = task1.complete;
+    assert.strictEqual(actual, false);
+  });
 
 
 })
