@@ -6,7 +6,7 @@ describe('Task', function(){
   let task1;
 
   beforeEach(function(){
-    task1 = new Task('Prove the existence of aliens', 10, 2);
+    task1 = new Task('Prove the existence of aliens', 10, 2, 'I Want To Believe poster');
   });
 
   it('should have a description', function(){
@@ -22,6 +22,14 @@ describe('Task', function(){
   it('should have an urgency level', function(){
     const actual = task1.urgency;
     assert.strictEqual(actual, 2);
-  })
+  });
+
+  it('should have a reward', function(){
+    const actual = task1.reward;
+    assert.strictEqual(actual, 'I Want To Believe poster');
+  });
+
+
+
 
 })
