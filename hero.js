@@ -22,9 +22,17 @@ Hero.prototype.addTask = function(task){
 }
 
 Hero.prototype.tasksByDifficulty = function(){
-      return this.tasklist.sort(function(a, b){
-      a.difficulty - b.difficulty;
+      const sorted = this.tasklist.sort(function(a, b){
+      return a.difficulty - b.difficulty;
     });
+    return sorted;
+}
+
+Hero.prototype.tasksByUrgency = function(){
+  const sorted = this.tasklist.sort(function(a, b){
+    return a.urgency - b.urgency;
+  });
+  return sorted;
 }
 
 module.exports = Hero;

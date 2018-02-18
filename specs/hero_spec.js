@@ -17,8 +17,8 @@ describe('Hero', function(){
     oreos = new Food('Oreos', 8);
     sunflowerSeeds = new Food('Sunflower Seeds', 12);
     task1 = new Task('Prove the existence of aliens', 10, 2, 'I Want To Believe poster');
-    task2 = new Task('Get Skinner onside', 6, 6, 'Search Warrant');
-    task3 = new Task('Signal Deep Throat', 3, 9, 'New Information');
+    task2 = new Task('Get Skinner onside', 6, 9, 'Search Warrant');
+    task3 = new Task('Signal Deep Throat', 3, 6, 'New Information');
   });
 
   it('should have a name', function(){
@@ -57,12 +57,20 @@ describe('tasklist', function(){
   });
 
   it('should sort tasklist by difficulty', function(){
-    foxMulder.addTask(task3);
-    foxMulder.addTask(task2);
     foxMulder.addTask(task1);
-    const actual = foxMulder.tasksByDifficulty()
+    foxMulder.addTask(task2);
+    foxMulder.addTask(task3);
+    const actual = foxMulder.tasksByDifficulty();
     assert.deepStrictEqual(actual, [task3, task2, task1]);
-  })
+  });
+
+  it('should sort tasklist by urgency', function(){
+    foxMulder.addTask(task1);
+    foxMulder.addTask(task2);
+    foxMulder.addTask(task3);
+    const actual = foxMulder.tasksByUrgency();
+    assert.deepStrictEqual(actual, [task1, task3, task2]);
+  });
 
 });
 
