@@ -28,4 +28,10 @@ describe('Rat', function(){
     assert.strictEqual(actual, true)
   });
 
+  it('should give food a poisonedValue upon touching', function(){
+    rat.touchFood(food);
+    actual = food.poisonedValue;
+    assert.strictEqual(actual, 10)
+  })
+
 });
