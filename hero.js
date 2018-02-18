@@ -15,40 +15,30 @@ Hero.prototype.eatFood = function(food){
   } else if(food.name === this.favouriteFood){
     this.health += (food.replenishmentValue * 1.5);
   } else {
-      this.health += food.replenishmentValue;
-    }
+    this.health += food.replenishmentValue;
   }
+}
 
 Hero.prototype.addTask = function(task){
   this.tasklist.push(task);
 }
 
-// Hero.prototype.sortTasks = function(sortFilter){
-//   const sorted = this.tasklist.sort(function(a, b){
-//     return a.sortFilter - b.sortFilter;
-//   });
-//   return sorted;
-// }
-
 Hero.prototype.tasksByDifficulty = function(){
-      const sorted = this.tasklist.sort(function(a, b){
-      return a.difficulty - b.difficulty;
-    });
-    return sorted;
+  return this.tasklist.sort(function(a, b){
+    return a.difficulty - b.difficulty;
+  });
 }
 
 Hero.prototype.tasksByUrgency = function(){
-  const sorted = this.tasklist.sort(function(a, b){
+  return this.tasklist.sort(function(a, b){
     return a.urgency - b.urgency;
   });
-  return sorted;
 }
 
 Hero.prototype.tasksByReward = function(){
-  const sorted = this.tasklist.sort(function(a, b){
+  return this.tasklist.sort(function(a, b){
     return a.reward > b.reward;
   });
-  return sorted;
 }
 
 Hero.prototype.completeTask = function(task){
@@ -58,17 +48,17 @@ Hero.prototype.completeTask = function(task){
     }
   });
 
-Hero.prototype.viewCompleteTasks = function(){
-  return completed = this.tasklist.filter(function(item){
-    return item.complete === true;
-  });
-}
+  Hero.prototype.viewCompleteTasks = function(){
+    return this.tasklist.filter(function(item){
+      return item.complete === true;
+    });
+  }
 
-Hero.prototype.viewIncompleteTasks = function(){
-  return incomplete = this.tasklist.filter(function(item){
-    return item.complete === false;
-  });
-}
+  Hero.prototype.viewIncompleteTasks = function(){
+    return this.tasklist.filter(function(item){
+      return item.complete === false;
+    });
+  }
 
 }
 
