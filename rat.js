@@ -4,7 +4,6 @@ const Rat = function(type, poisonLevel){
 }
 
 Rat.prototype.touchFood = function(food){
-  food.poisoned = true;
   food.poisonedValue = this.poisonLevel;
 }
 

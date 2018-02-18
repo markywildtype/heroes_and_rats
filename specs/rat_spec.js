@@ -22,12 +22,6 @@ describe('Rat', function(){
     assert.strictEqual(actual, 10);
   });
 
-  it('should be able to poison food', function(){
-    rat.touchFood(food);
-    actual = food.poisoned;
-    assert.strictEqual(actual, true)
-  });
-
   it('should give food a poisonedValue upon touching', function(){
     rat.touchFood(food);
     actual = food.poisonedValue;

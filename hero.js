@@ -10,7 +10,7 @@ Hero.prototype.talk = function(){
 }
 
 Hero.prototype.eatFood = function(food){
-  if(food.poisoned === true){
+  if(food.poisonedValue !== 0){
     this.health -= food.poisonedValue;
   } else if(food.name === this.favouriteFood){
     this.health += (food.replenishmentValue * 1.5);
