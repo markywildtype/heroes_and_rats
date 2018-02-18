@@ -39,7 +39,6 @@ Hero.prototype.tasksByReward = function(){
   const sorted = this.tasklist.sort(function(a, b){
     return a.reward > b.reward;
   });
-  console.log(sorted);
   return sorted;
 }
 
@@ -49,6 +48,13 @@ Hero.prototype.completeTask = function(task){
       item.markComplete()
     }
   });
+
+Hero.prototype.viewCompleteTasks = function(){
+  return completed = this.tasklist.filter(function(item){
+    return item.complete === true;
+  });
+}
+
 }
 
 module.exports = Hero;
