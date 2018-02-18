@@ -78,7 +78,23 @@ describe('tasklist', function(){
     foxMulder.addTask(task3);
     const actual = foxMulder.tasksByReward();
     assert.deepStrictEqual(actual, [task1, task3, task2])
-  })
+  });
+
+  it('should be able to complete tasks', function(){
+    foxMulder.addTask(task2);
+    // foxMulder.completeTask(task2);
+    const actual = foxMulder.tasklist[0].complete;
+    assert.deepStrictEqual(actual, true);
+  });
+
+  // it('should be able to view complete tasks', function(){
+  //   foxMulder.addTask(task1);
+  //   foxMulder.addTask(task2);
+  //   foxMulder.addTask(task3);
+  //   foxMulder.completeTask(task2);
+  //   const actual = foxMulder.viewCompleteTasks();
+  //   assert.deepStrictEqual(actual, [task2]);
+  // });
 
 });
 

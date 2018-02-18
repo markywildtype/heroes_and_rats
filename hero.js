@@ -43,4 +43,12 @@ Hero.prototype.tasksByReward = function(){
   return sorted;
 }
 
+Hero.prototype.completeTask = function(task){
+  this.tasklist.forEach(function(item){
+    if(item === task){
+      item.markComplete()
+    }
+  });
+}
+
 module.exports = Hero;
