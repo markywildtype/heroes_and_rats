@@ -72,6 +72,14 @@ describe('tasklist', function(){
     assert.deepStrictEqual(actual, [task1, task3, task2]);
   });
 
+  it('should sort tasks by reward', function(){
+    foxMulder.addTask(task1);
+    foxMulder.addTask(task2);
+    foxMulder.addTask(task3);
+    const actual = foxMulder.tasksByReward();
+    assert.deepStrictEqual(actual, [task1, task3, task2])
+  })
+
 });
 
 
