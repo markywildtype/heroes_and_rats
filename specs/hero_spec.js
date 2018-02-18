@@ -2,6 +2,7 @@ const assert = require('assert');
 const Hero = require('../hero.js');
 const Food = require('../food.js');
 const Task = require('../task.js');
+const Rat = require('../rat.js');
 
 describe('Hero', function(){
 
@@ -11,6 +12,7 @@ describe('Hero', function(){
   let task1;
   let task2;
   let task3;
+  let rat;
 
   beforeEach(function(){
     foxMulder = new Hero('Fox Mulder', 'Sunflower Seeds');
@@ -19,6 +21,7 @@ describe('Hero', function(){
     task1 = new Task('Prove the existence of aliens', 10, 2, 'I Want To Believe poster');
     task2 = new Task('Get Skinner onside', 6, 9, 'Search Warrant');
     task3 = new Task('Signal Deep Throat', 3, 6, 'New Information');
+    rat = new Rat('Brown', 10);
   });
 
   it('should have a name', function(){
@@ -128,6 +131,12 @@ describe('tasklist', function(){
     assert.strictEqual(actual, 118);
   });
 
+  it('should deplete health if eating poisoned food', function(){
+    rat.touchFood(oreos);
+    foxMulder.eatFood(oreos);
+    const actual = foxMulder.health;
+    assert.strictEqual(actual, 90);
+  });
 
 
 })
