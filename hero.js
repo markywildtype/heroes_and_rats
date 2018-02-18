@@ -21,4 +21,10 @@ Hero.prototype.addTask = function(task){
   this.tasklist.push(task);
 }
 
+Hero.prototype.tasksByDifficulty = function(){
+      return this.tasklist.sort(function(a, b){
+      a.difficulty - b.difficulty;
+    });
+}
+
 module.exports = Hero;

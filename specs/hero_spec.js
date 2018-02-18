@@ -18,7 +18,7 @@ describe('Hero', function(){
     sunflowerSeeds = new Food('Sunflower Seeds', 12);
     task1 = new Task('Prove the existence of aliens', 10, 2, 'I Want To Believe poster');
     task2 = new Task('Get Skinner onside', 6, 6, 'Search Warrant');
-    task2 = new Task('Signal Deep Throat', 3, 9, 'New Information');
+    task3 = new Task('Signal Deep Throat', 3, 9, 'New Information');
   });
 
   it('should have a name', function(){
@@ -41,6 +41,8 @@ describe('Hero', function(){
     assert.strictEqual(actual, "Hi, I'm Fox Mulder")
   });
 
+describe('tasklist', function(){
+
   it('should have a list of tasks which starts empty', function(){
     const actual = foxMulder.tasklist.length;
     assert.strictEqual(actual, 0);
@@ -54,6 +56,17 @@ describe('Hero', function(){
     assert.strictEqual(actual, 3);
   });
 
+  it('should sort tasklist by difficulty', function(){
+    foxMulder.addTask(task3);
+    foxMulder.addTask(task2);
+    foxMulder.addTask(task1);
+    const actual = foxMulder.tasksByDifficulty()
+    assert.deepStrictEqual(actual, [task3, task2, task1]);
+  })
+
+});
+
+
   it('should be able to eat food to increase health value', function(){
     foxMulder.eatFood(oreos);
     const actual = foxMulder.health;
@@ -65,5 +78,7 @@ describe('Hero', function(){
     const actual = foxMulder.health;
     assert.strictEqual(actual, 118);
   });
+
+
 
 })
