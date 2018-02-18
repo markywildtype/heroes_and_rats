@@ -19,4 +19,9 @@ describe('Food', function(){
     assert.strictEqual(actual, 12);
   });
 
+  it('should have a poisoned property which starts as false', function(){
+    const actual = food.poisoned;
+    assert.strictEqual(actual, false);
+  })
+
 })
