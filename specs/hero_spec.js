@@ -96,6 +96,14 @@ describe('tasklist', function(){
     assert.deepStrictEqual(actual, [task2]);
   });
 
+  it('should be able to view incomplete tasks', function(){
+    foxMulder.addTask(task1);
+    foxMulder.addTask(task2);
+    foxMulder.addTask(task3);
+    foxMulder.completeTask(task2);
+    const actual = foxMulder.viewIncompleteTasks();
+    assert.deepStrictEqual(actual, [task1, task3]);
+  })
 
 });
 

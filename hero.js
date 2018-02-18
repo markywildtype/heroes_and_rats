@@ -55,6 +55,12 @@ Hero.prototype.viewCompleteTasks = function(){
   });
 }
 
+Hero.prototype.viewIncompleteTasks = function(){
+  return incomplete = this.tasklist.filter(function(item){
+    return item.complete === false;
+  });
+}
+
 }
 
 module.exports = Hero;
