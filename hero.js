@@ -3,6 +3,7 @@ const Hero = function(name, favouriteFood){
   this.favouriteFood = favouriteFood;
   this.health = 100;
   this.tasklist = [];
+  this.score = 0;
 }
 
 Hero.prototype.talk = function(){
@@ -37,7 +38,7 @@ Hero.prototype.tasksByUrgency = function(){
 
 Hero.prototype.tasksByReward = function(){
   return this.tasklist.sort(function(a, b){
-    return a.reward > b.reward;
+    return a.reward - b.reward;
   });
 }
 
@@ -45,20 +46,21 @@ Hero.prototype.completeTask = function(task){
   this.tasklist.forEach(function(item){
     if(item === task){
       item.markComplete()
+      this.score += item.reward;
     }
+  }.bind(this));
+
+Hero.prototype.viewCompleteTasks = function(){
+  return this.tasklist.filter(function(item){
+    return item.complete === true;
   });
+}
 
-  Hero.prototype.viewCompleteTasks = function(){
-    return this.tasklist.filter(function(item){
-      return item.complete === true;
-    });
-  }
-
-  Hero.prototype.viewIncompleteTasks = function(){
-    return this.tasklist.filter(function(item){
-      return item.complete === false;
-    });
-  }
+Hero.prototype.viewIncompleteTasks = function(){
+  return this.tasklist.filter(function(item){
+    return item.complete === false;
+  });
+}
 
 }
 

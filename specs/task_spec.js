@@ -6,7 +6,7 @@ describe('Task', function(){
   let task1;
 
   beforeEach(function(){
-    task1 = new Task('Prove the existence of aliens', 10, 2, 'I Want To Believe poster');
+    task1 = new Task('Prove the existence of aliens', 10, 2, 25);
   });
 
   it('should have a description', function(){
@@ -26,7 +26,7 @@ describe('Task', function(){
 
   it('should have a reward', function(){
     const actual = task1.reward;
-    assert.strictEqual(actual, 'I Want To Believe poster');
+    assert.strictEqual(actual, 25);
   });
 
   it('should have a completion status, which starts at false', function(){

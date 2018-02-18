@@ -18,9 +18,9 @@ describe('Hero', function(){
     foxMulder = new Hero('Fox Mulder', 'Sunflower Seeds');
     oreos = new Food('Oreos', 8);
     sunflowerSeeds = new Food('Sunflower Seeds', 12);
-    task1 = new Task('Prove the existence of aliens', 10, 2, 'I Want To Believe poster');
-    task2 = new Task('Get Skinner onside', 6, 9, 'Search Warrant');
-    task3 = new Task('Signal Deep Throat', 3, 6, 'New Information');
+    task1 = new Task('Prove the existence of aliens', 10, 2, 25);
+    task2 = new Task('Get Skinner onside', 6, 9, 40);
+    task3 = new Task('Signal Deep Throat', 3, 6, 35);
     rat = new Rat('Brown', 10);
   });
 
@@ -42,6 +42,11 @@ describe('Hero', function(){
   it('should be able to talk', function(){
     const actual = foxMulder.talk();
     assert.strictEqual(actual, "Hi, I'm Fox Mulder")
+  });
+
+  it('should have a score which starts at 0', function(){
+    const actual = foxMulder.score;
+    assert.strictEqual(actual, 0);
   });
 
 describe('tasklist', function(){
@@ -89,6 +94,13 @@ describe('tasklist', function(){
     const actual = foxMulder.tasklist[0].complete;
     assert.deepStrictEqual(actual, true);
   });
+
+  it('should increase score on task completion', function(){
+    foxMulder.addTask(task2);
+    foxMulder.completeTask(task2);
+    const actual = foxMulder.score;
+    assert.deepStrictEqual(actual, 40);
+  })
 
   it('should be able to view complete tasks', function(){
     foxMulder.addTask(task1);
