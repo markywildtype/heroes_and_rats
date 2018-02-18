@@ -56,6 +56,14 @@ describe('tasklist', function(){
     assert.strictEqual(actual, 3);
   });
 
+  // it('should sort tasklist by parameter', function(){
+  //     foxMulder.addTask(task1);
+  //     foxMulder.addTask(task2);
+  //     foxMulder.addTask(task3);
+  //     const actual = foxMulder.sortTasks('difficulty');
+  //     assert.deepStrictEqual(actual, [task3, task2, task1]);
+  // });
+
   it('should sort tasklist by difficulty', function(){
     foxMulder.addTask(task1);
     foxMulder.addTask(task2);

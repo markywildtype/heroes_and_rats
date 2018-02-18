@@ -21,6 +21,13 @@ Hero.prototype.addTask = function(task){
   this.tasklist.push(task);
 }
 
+// Hero.prototype.sortTasks = function(sortFilter){
+//   const sorted = this.tasklist.sort(function(a, b){
+//     return a.sortFilter - b.sortFilter;
+//   });
+//   return sorted;
+// }
+
 Hero.prototype.tasksByDifficulty = function(){
       const sorted = this.tasklist.sort(function(a, b){
       return a.difficulty - b.difficulty;
